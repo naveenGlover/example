@@ -5,18 +5,7 @@ import Tasks from './components/Tasks';
 import React, { useState } from 'react';
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "appointment",
-      checked: true
-    },
-    {
-      id: 2,
-      name: "event",
-      checked: false
-    }
-  ]);
+  const [tasks, setTasks] = useState([]);
   const onDelete = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
   }

@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 const AddTask = ({ addTask }) => {
-    let form = document.getElementById('AddTask');
+    const [value, setValue] = useState("");
+    const [warning, setWarning] = useState(false);
+    const errmsg = "Please Eneter Task name to add...!";
+    const onChange = (event) => {
+        setValue(event.target.value);
+    }
     const formOnSubmit = (e) => {
         e.preventDefault();
-        if (document.getElementById('task').value !== '') {
+        if ((value.trim()).length !== 0) {
             let task = {};
             task.name = document.getElementById('task').value;
             task.id = Math.floor((Math.random() * 10000) + 1);
             task.checked = false;
             addTask(task);
-            document.getElementById('task').value = '';
+            setValue('');
+            setWarning(false);
         } else {
-            alert("Please Eneter Task to add...!")
+            setWarning(true);
         }
     }
     return (
         <form id='AddTask' className='AddTask'>
-            <input type="text" id='task' placeholder='Enter Task Todo...' />
+            <input type="text" id='task' placeholder='Enter Task Todo...' onChange={onChange} value={value} />
             <button type='submit' value='submit' onClick={formOnSubmit}>Add</button>
+            {warning ? <p className='warning'>{errmsg}</p> : ""}
         </form>
     )
 }

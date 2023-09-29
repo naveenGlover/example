@@ -11,6 +11,7 @@
     right: 50%;
     bottom: 70%;
     transform: translate(50%, 50%);
+    border-radius: 25px;
 }
 
 .appHead {
@@ -33,22 +34,33 @@
 
 .AddTask button {
     height: 31px;
-    background-color: blue;
+    background-color: #1D4ED8;
     width: 80px;
     cursor: pointer;
     color: white;
-    border: 1px solid blue;
+    border: 1px solid #1D4ED8;
     border-radius: 5px;
     font-weight: 600;
     font-size: 15px;
 }
 
 .AddTask button:hover {
-    background-color: rgb(0, 154, 0);
+    background-color: blue;
+}
+
+.warning {
+    font-size: 14px;
+    text-align: center;
+    color: orangered;
 }
 
 .Tasks {
     list-style-type: none;
+}
+
+.noTodo {
+    text-align: center;
+    color: #A1A1AA;
 }
 
 .task {
@@ -64,7 +76,6 @@
     padding: 5px;
     user-select: none;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .taskDone {
@@ -72,8 +83,10 @@
     color: lightgray;
 }
 
-.task input {
+.checkbox-inp {
+    zoom: 1.35;
     width: 20px;
+    cursor: pointer;
 }
 
 .delete-btn {

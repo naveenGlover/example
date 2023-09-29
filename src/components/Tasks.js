@@ -9,9 +9,9 @@ const Tasks = ({ tasks, onDelete, onChange }) => {
     }
     return (
         <ul className='Tasks'>
-            {tasks.map((task) => (
-                <li className='task' key={task.id} onDoubleClick={() => onchange(task)}> <span></span> <p className={task.checked ? "taskDone" : "taskPending"}>{task.name}</p><FaTimes className='delete-btn' onClick={() => onDelete(task.id)} /></li>
-            ))}
+            {tasks.length != 0 ? tasks.map((task) => (
+                <li className='task' key={task.id} > <input type='checkbox' className='checkbox-inp' onClick={() => onchange(task)} /> <p className={task.checked ? "taskDone" : "taskPending"}>{task.name}</p><FaTimes className='delete-btn' onClick={() => onDelete(task.id)} /></li>
+            )) : <li className='noTodo'>No Todo's There</li>}
         </ul>
     )
 }
